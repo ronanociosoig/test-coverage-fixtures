@@ -1,0 +1,76 @@
+Extract out code coverage using llvm-cov for the Basic app binary and sources
+/Users/ronan.ociosoig/Projects/TestCoverageFixtures/AppWithPartialCoverage/Derived/Sources/TuistBundle+BasicApp.swift:
+    1|       |// swiftlint:disable all
+    2|       |// swift-format-ignore-file
+    3|       |// swiftformat:disable all
+    4|       |import Foundation
+    5|       |
+    6|       |// MARK: - Swift Bundle Accessor
+    7|       |
+    8|       |private class BundleFinder {}
+    9|       |
+   10|       |extension Foundation.Bundle {
+   11|       |/// Since BasicApp is a application, the bundle for classes within this module can be used directly.
+   12|       |static let module = Bundle(for: BundleFinder.self)
+   13|       |}
+   14|       |
+   15|       |// MARK: - Objective-C Bundle Accessor
+   16|       |
+   17|       |@objc
+   18|       |public class BasicAppResources: NSObject {
+   19|      0|@objc public class var bundle: Bundle {
+   20|      0|    return .module
+   21|      0|}
+   22|       |}
+   23|       |// swiftlint:enable all
+   24|       |// swiftformat:enable all
+
+/Users/ronan.ociosoig/Projects/TestCoverageFixtures/AppWithPartialCoverage/Targets/BasicApp/Sources/AppDelegate.swift:
+    1|       |import UIKit
+    2|       |
+    3|       |@main
+    4|       |class AppDelegate: UIResponder, UIApplicationDelegate {
+    5|       |
+    6|       |    var window: UIWindow?
+    7|       |
+    8|       |    func application(
+    9|       |        _ application: UIApplication,
+   10|       |        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+   11|      1|    ) -> Bool {
+   12|      1|        window = UIWindow(frame: UIScreen.main.bounds)
+   13|      1|        window?.rootViewController = ViewControllerFactory.make()
+   14|      1|        window?.makeKeyAndVisible()
+   15|      1|
+   16|      1|        return true
+   17|      1|    }
+   18|       |}
+   19|       |
+   20|       |struct ViewControllerFactory {
+   21|      2|    static func make() -> UIViewController {
+   22|      2|        let viewController = UIViewController()
+   23|      2|        viewController.view.backgroundColor = .white
+   24|      2|        return viewController
+   25|      2|    }
+   26|       |}
+
+/Users/ronan.ociosoig/Projects/TestCoverageFixtures/AppWithPartialCoverage/Targets/BasicApp/Sources/Maths.swift:
+    1|       |import Foundation
+    2|       |
+    3|       |struct Maths {
+    4|      1|    static func add(_ a: Int, _ b: Int) -> Int {
+    5|      1|        return a + b
+    6|      1|    }
+    7|       |    
+    8|      1|    static func subtract(_ a: Int, _ b: Int) -> Int {
+    9|      1|        return a - b
+   10|      1|    }
+   11|       |    
+   12|      0|    static func multiply(_ a: Int, _ b: Int) -> Int {
+   13|      0|        return a * b
+   14|      0|    }
+   15|       |    
+   16|      0|    static func divide(_ a: Int, _ b: Int) -> Int {
+   17|      0|        return a / b
+   18|      0|    }
+   19|       |}
+
