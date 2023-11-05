@@ -1,0 +1,53 @@
+# OS X
+.DS_Store
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+profile
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+
+# Bundler
+.bundle
+
+### Projects ###
+AppWithGoodCoverage/*.xcodeproj
+AppWithGoodCoverage/*.xcworkspace
+AppWithPartialCoverage/*.xcodeproj
+AppWithPartialCoverage/*.xcworkspace
+ModularAppWithDependency/*.xcodeproj
+ModularAppWithDependency/*.xcworkspace
+ModularAppWithGoodCoverage/*.xcodeproj
+ModularAppWithGoodCoverage/*.xcworkspace
+
+### Tuist derived files ###
+graph.dot
+Derived/
+
+AppWithGoodCoverage/Derived/
+AppWithPartialCoverage/Derived/
+ModularAppWithDependency/Derived/
+ModularAppWithGoodCoverage/Derived/
+
+AppWithGoodCoverage/Tuist/Dependencies/
+AppWithPartialCoverage/Tuist/Dependencies/
+ModularAppWithDependency/Tuist/Dependencies/
+ModularAppWithGoodCoverage/Tuist/Dependencies/
+
+### Test generated output files ###
+AppWithGoodCoverage/output
+AppWithPartialCoverage/output
+ModularAppWithDependency/output
+ModularAppWithGoodCoverage/output
