@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash ./runAppTests.sh
+bash ./runAppWithGoogCoverageTests.sh
 bash ./runAppWithPartialCoverageTests.sh
-bash ./runModularAppTests.sh
+bash ./runModularAppWithGoodCoverageTests.sh
 bash ./runModularAppWithDependencyTests.sh
