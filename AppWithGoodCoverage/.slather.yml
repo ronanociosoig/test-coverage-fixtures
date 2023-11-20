@@ -1,0 +1,15 @@
+# .slather.yml
+
+coverage_service: sonarqube_xml
+workspace: AppWithGoodCoverage.xcworkspace
+xcodeproj: AppWithGoodCoverage.xcodeproj
+scheme: AppWithGoodCoverage-Workspace
+source_directory:
+  - Targets/AppWithGoodCoverage/Sources
+build_directory: /Users/ronan.ociosoig/Library/Developer/Xcode/DerivedData/AppWithGoodCoverage-bofpsjhwlksupratipvshxqpclip
+output_directory: ./output
+binary_basename:
+  - AppWithGoodCoverage
+ignore:
+  - "Derived/Sources/TuistBundle+AppWithGoodCoverage.swift"
+

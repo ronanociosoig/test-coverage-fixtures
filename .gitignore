@@ -47,7 +47,8 @@ ModularAppWithDependency/Tuist/Dependencies/
 ModularAppWithGoodCoverage/Tuist/Dependencies/
 
 ### Test generated output files ###
-AppWithGoodCoverage/output
-AppWithPartialCoverage/output
-ModularAppWithDependency/output
-ModularAppWithGoodCoverage/output
+AppWithGoodCoverage/output/
+AppWithPartialCoverage/output/
+ModularAppWithDependency/output/
+ModularAppWithGoodCoverage/output/
+

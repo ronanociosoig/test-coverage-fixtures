@@ -1,0 +1,14 @@
+# .slather.yml
+
+coverage_service: sonarqube_xml
+workspace: PROJECT.xcworkspace
+xcodeproj: PROJECT.xcodeproj
+scheme: PROJECT-Workspace
+source_directory:
+  - Targets/PROJECT/Sources
+build_directory: /Users/ronan.ociosoig/Library/Developer/Xcode/DerivedData/PROJECT-IDENTIFIER
+output_directory: ./output
+binary_basename:
+  - PROJECT
+ignore:
+  - "Derived/Sources/TuistBundle+PROJECT.swift"
