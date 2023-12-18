@@ -46,6 +46,12 @@ AppWithPartialCoverage/Tuist/Dependencies/
 ModularAppWithDependency/Tuist/Dependencies/
 ModularAppWithGoodCoverage/Tuist/Dependencies/
 
+### Slather Generated YML ###
+AppWithGoodCoverage/.slather.yml
+AppWithPartialCoverage/.slather.yml
+ModularAppWithDependency/.slather.yml
+ModularAppWithGoodCoverage/.slather.yml
+
 ### Test generated output files ###
 AppWithGoodCoverage/output/
 AppWithPartialCoverage/output/

@@ -1,0 +1,14 @@
+# .slather.yml
+
+coverage_service: sonarqube_xml
+workspace: ModularAppWithDependency.xcworkspace
+xcodeproj: ModularAppWithDependency.xcodeproj
+scheme: ModularAppWithDependency-Workspace
+source_directory:
+  - Targets/ModularAppWithDependency/Sources
+build_directory: /Users/ronan.ociosoig/Library/Developer/Xcode/DerivedData/ModularAppWithDependency-hcmdwtdqsxxydpfermzyoursiycd
+output_directory: ./output
+binary_basename:
+  - Numbers
+ignore:
+  - "Derived/Sources/TuistBundle+ModularAppWithDependency.swift"
