@@ -1,0 +1,66 @@
+---
+
+name: Test Xcode Test Coverage Parsers
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+
+  run-all-tests:
+    runs-on: macos-13
+    steps:
+    - uses: actions/checkout@v4
+    - run:
+        ./scripts/setup.sh
+        ./scripts/runAllTests.sh
+
+    - name: Upload AppWithGoodCoverage coverage report
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: AppWithGoodCoverage-xcresult
+        path: AppWithGoodCoverage/output/tests.xcresult
+
+    - name: Upload AppWithPartialCoverage coverage report
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: AppWithPartialCoverage-xcresult
+        path: AppWithPartialCoverage/output/tests.xcresult
+
+    - name: Upload ModularAppWithDependency coverage report
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: ModularAppWithDependency-xcresult
+        path: ModularAppWithDependency/output/tests.xcresult
+
+    - name: Upload ModularAppWithGoodCoverage coverage report
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: ModularAppWithGoodCoverage-xcresult
+        path: ModularAppWithGoodCoverage/output/tests.xcresult
+
+  parse-test-results:
+    strategy:
+      matrix:
+        runner: [macos-13, ubuntu-latest]
+        app: [AppWithGoodCoverage, AppWithPartialCoverage, ModularAppWithDependency, ModularAppWithGoodCoverage]
+    runs-on: ${{ matrix.runner }}
+    needs: run-all-tests
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download ${{ matrix.app }} coverage report
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ matrix.app }}-xcresult
+        path: ${{ matrix.app }}/output/tests.xcresult
+    - name: Parse test results
+      run: |
+        ./scripts/parseDataUsingSonarqubeScript.sh ${{ matrix.app }}
+        ./scripts/parseDataUsingXCResultParser.sh ${{ matrix.app }}
+        ./scripts/parseDataUsingXcc.sh ${{ matrix.app }}
+        ./scripts/parseDataUsingSlather.sh ${{ matrix.app }}
