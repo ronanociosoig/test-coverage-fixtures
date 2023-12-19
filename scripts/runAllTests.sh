@@ -1,6 +1,6 @@
 #!/bin/bash
-
-bash ./runAppWithGoogCoverageTests.sh
-bash ./runAppWithPartialCoverageTests.sh
-bash ./runModularAppWithGoodCoverageTests.sh
-bash ./runModularAppWithDependencyTests.sh
+tust clean tests
+bash ./runAppTests.sh AppWithGoodCoverage "iPhone 15" "17.2"
+bash ./runAppTests.sh AppWithPartialCoverage "iPhone 15" "17.2"
+bash ./runAppTests.sh ModularAppWithGoodCoverage "iPhone 15" "17.2"
+bash ./runAppTests.sh ModularAppWithDependency "iPhone 15" "17.2"
